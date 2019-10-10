@@ -1,6 +1,6 @@
+import os
 import random
 import pygame
-from pygame import *
 
 
 pygame.init()
@@ -14,7 +14,7 @@ MAX_THICKNESS = 16
 
 def get_image(filename):
     try:
-        return pygame.image.load('checkerboard.png')
+        return pygame.image.load(filename)
     except:
         print("Couldn't load image.")
 
@@ -86,5 +86,6 @@ def get_fitness(source, target, width, height):
     return d
 
 if __name__ == '__main__':
-    target_image = get_image('checkerboard.png')
+    image_path = os.path.join('images', 'checkerboard.png')
+    target_image = get_image(image_path)
     evolve_image(target_image)
